@@ -105,7 +105,10 @@ dist
 
 
 # Exclude fonts folder
-fonts/
+.eot
+.otf
+.woff
+.woff2
 
 # Exclude json
 json/
