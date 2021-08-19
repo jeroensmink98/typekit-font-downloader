@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# Exclude fonts folder
+fonts/
+
+# Exclude json
+json/
+
+css/
