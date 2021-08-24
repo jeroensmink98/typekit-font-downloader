@@ -6,6 +6,8 @@ const cssjson = require('cssjson');
 const { v4: uuidv4 } = require('uuid');
 
 const FONTS_FOLDER = '/fonts'
+
+// URL of the font you want to scrape
 const STYLE_URL = 'https://use.typekit.net/cdd8oev.css';
 
 const FORMAT_USER_AGENTS = {
@@ -23,7 +25,7 @@ const FORMAT_EXTENSIONS = {
 
 const CSS_OBJ = {}
 
-// URL of the font you want to scrape
+
 
 const downloadedFonts = {};
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '1';
