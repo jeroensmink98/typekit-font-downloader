@@ -110,7 +110,9 @@ dist
 *.woff
 *.woff2
 
-# Exclude json
-json/
+# Exlude fonts and css folders
 
 css/
+fonts/
+
+
