@@ -9,7 +9,7 @@ const FONTS_FOLDER = './fonts';
 
 // Supply your Typekit URL HERE
 // Example: https://use.typekit.net/qeq2vnm.css
-const FONT_KIT_URL = 'https://use.typekit.net/qeq2vnm.css';
+const FONT_KIT_URL = '';
 var   FONT_FAMILY_NAME = ''
 
 
