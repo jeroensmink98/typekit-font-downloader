@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
-    "scrape": "node app.js"
+    "fonts": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "cssjson": "^2.1.3",
-    "uuid": "^8.3.2"
+    "fancy-log": "^1.3.3"
   }
 }

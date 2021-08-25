@@ -9,7 +9,10 @@ Give a URL of the typekit fonts and let the script run. It will download all the
 With this tool you can increase your performance of your website since the site does not need to retrieve the fonts anymore from a local source, instead it has all the files needed locally avaliable.
 
 # Get started
-First create a new folder called `css` and a new folder `fonts` in the root of the project. Then install the node packages and run `npm run scrape` to start the download of the fonts.
+- Install `node_modules` by running ``npm install`` from the root of the project
+- Inside `app.js` set the ``FONT_KIT_URL`` variable with a valid font-kit css url.
+- Execute the script by running `npm run fonts`
+- The tool with create a folder ``fonts`` and a folder ``css``. The ``css`` folder contains a file with the font definition which you can include in your own project.
 
 # Acknowlegment
 This tool might be against the Terms of Service/EULA of Adobe. 
