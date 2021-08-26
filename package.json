@@ -16,6 +16,9 @@
   },
   "dependencies": {
     "cssjson": "^2.1.3",
-    "fancy-log": "^1.3.3"
+    "fancy-log": "^1.3.3",
+    "match-all": "^1.2.6",
+    "streamp": "^3.0.2",
+    "tinyreq": "^3.4.2"
   }
 }
