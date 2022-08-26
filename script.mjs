@@ -1,4 +1,6 @@
-/* eslint-env node, es6 */
+#!/usr/bin/env node
+
+import { $, chalk } from "zx";
 const fs = require("fs");
 const log = require("fancy-log");
 const https = require('https');
@@ -7,9 +9,18 @@ const cssJson = require('cssjson');
 const CSS_FOLDER = './css';
 const FONTS_FOLDER = './fonts';
 
-// Supply your Typekit URL HERE
-// Example: https://use.typekit.net/qeq2vnm.css
-const FONT_KIT_URL = '';
+
+// Pass CLI arguments
+let FONT_KIT_URL = argv.url;
+
+if(!FONT_KIT_URL){
+    console.log(chalk.red("No font URL specified"));
+    process.exit(0)
+}
+
+// Reject non-https requests
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '1';
+
 var   FONT_FAMILY_NAME = ''
 
 
@@ -67,10 +78,10 @@ async function create_definition() {
             // a new file we will use later as our .css file
             response.on('end', () => {
                 const fontFamily = content.match(/font-family:\s*"([^"]+)"/)[1];
-                empty_content = ''
+                let empty_content = ''
 
                 // Create class name we want to add to the .css
-                css_class_str = `.tk-${fontFamily} { font-family: "${fontFamily}",serif; }`
+                let css_class_str = `.tk-${fontFamily} { font-family: "${fontFamily}",serif; }`
 
                 // First check if the definition already exists
                 fileExists(`${CSS_FOLDER}/${fontFamily}-definition.css`).then(res => {
@@ -184,7 +195,7 @@ async function fileExists(path) {
 
 async function add_style_class(file_url, font_family){
     return new Promise(resolve => {
-        str = `.tk-${font_family} { font-family: "${font_family}",serif; }`
+        let str = `.tk-${font_family} { font-family: "${font_family}",serif; }`
         fs.appendFileSync(file_url, str, function (err) {
             if (err) throw (err);
             resolve('done')
@@ -210,16 +221,16 @@ create_definition().then(() => {
                 const fontUrlAndFormats = fontFaceRule.match(/url\("([^"]+)"\)\s+format\("([^"]+)"\)/g);
                 FONT_FAMILY_NAME = fontFamily;
                 // Parse the content of the HTTP body (our .CSS) to JSON
-                font = cssJson.toJSON(fontFaceRule);
+                let font = cssJson.toJSON(fontFaceRule);
 
                 // We have to create a filename for the font entry
-                font_filename = `url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.woff") format("woff"),url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.woff2") format("woff2"),url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.otf") format("opentype")`
+                let font_filename = `url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.woff") format("woff"),url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.woff2") format("woff2"),url(".${FONTS_FOLDER}/${fontFamily}_${fontWeight}_${fontStyle}.otf") format("opentype")`
 
                 // Overide the src value in our JSON object
                 font.children['@font-face']['attributes']['src'] = font_filename;
 
                 // Parse our JSON Object to a string
-                cssString = cssJson.toCSS(font)
+                let cssString = cssJson.toCSS(font)
 
                 fs.appendFileSync(`${CSS_FOLDER}/${fontFamily}-definition.css`, cssString, function (err) {
                     if (err) throw (err);
@@ -233,11 +244,3 @@ create_definition().then(() => {
         });
     })
 })
-
-
-
-
-
-
-
-

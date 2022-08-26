@@ -9,9 +9,14 @@ Give a URL of the typekit fonts and let the script run. It will download all the
 With this tool you can increase your performance of your website since the site does not need to retrieve the fonts anymore from a local source, instead it has all the files needed locally avaliable.
 
 # Get started
+
+Under the hood this project uses `zx` to execute the scripts. You can install it globally running `npm i -g zx` 
+
+**Requirement**: Node version >= 16.0.0
+
 - Install `node_modules` by running ``npm install`` from the root of the project
-- Inside `app.js` set the ``FONT_KIT_URL`` variable with a valid font-kit css url.
-- Execute the script by running `npm run fonts`
+- Now with `zx` installed you can run `zx .\script.mjs --url=https://use.typekit.net/qeq2vnm.css` whereby with the `--url` argument you can specify what font-kit to download.
+    - You can also make the script an executable by running `chmod +x ./script.mjs` Then you can run the script with `./script.mjs`
 - The tool with create a folder ``fonts`` and a folder ``css``. The ``css`` folder contains a file with the font definition which you can include in your own project.
 
 # Acknowlegment

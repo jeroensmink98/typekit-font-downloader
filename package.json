@@ -4,9 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js",
-    "fonts": "node app.js"
+
   },
   "keywords": [],
   "author": "",
@@ -16,6 +14,7 @@
   },
   "dependencies": {
     "cssjson": "^2.1.3",
-    "fancy-log": "^1.3.3"
+    "fancy-log": "^1.3.3",
+    "zx": "^7.0.8"
   }
 }
