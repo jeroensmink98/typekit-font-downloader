@@ -15,7 +15,7 @@ Under the hood this project uses `zx` to execute the scripts. You can install it
 **Requirement**: Node version >= 16.0.0
 
 - Install `node_modules` by running ``npm install`` from the root of the project
-- Now with `zx` installed you can run `zx .\script.mjs --url=https://use.typekit.net/qeq2vnm.css` whereby with the `--url` argument you can specify what font-kit to download.
+- Now with `zx` installed you can run `zx ./script.mjs --url=https://use.typekit.net/qeq2vnm.css` whereby with the `--url` argument you can specify what font-kit to download.
     - You can also make the script an executable by running `chmod +x ./script.mjs` Then you can run the script with `./script.mjs`
 - The tool with create a folder ``fonts`` and a folder ``css``. The ``css`` folder contains a file with the font definition which you can include in your own project.
 
