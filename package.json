@@ -4,6 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
